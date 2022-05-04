@@ -1,0 +1,32 @@
+server:
+  port: 7000
+
+spring:
+  datasource:
+    username: root
+    password: password
+    url: jdbc:mysql://121.14.31.19:7003/shoppingMall_sms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 121.14.31.19:7005
+  application:
+    name: shoppingmall-coupon
+
+
+mybatis-plus:
+  #classpath* 后面加 * 意思是不止扫描自己的类路径，包括引用的其他类库的也都一起扫
+  #classpath*:/mapper/**/*.xml
+  #该项目，只需要精确即可，所以把 * 去掉
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+
+coupon:
+  user:
+    name : zhangsan
+    age : 18
+
+
