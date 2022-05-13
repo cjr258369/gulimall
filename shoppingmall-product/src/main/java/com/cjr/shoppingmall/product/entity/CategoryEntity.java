@@ -1,11 +1,12 @@
 package com.cjr.shoppingmall.product.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
-import lombok.Data;
+import java.util.List;
 
 /**
  * 商品三级分类
@@ -56,5 +57,12 @@ public class CategoryEntity implements Serializable {
 	 * 商品数量
 	 */
 	private Integer productCount;
+
+	/**
+	 * 1. 增加注解：@TableField(exist = false)，意思是这个字段不是数据库里面的字段
+	 * 存放当前菜单的子分类
+	 */
+	@TableField(exist = false)
+	private List<CategoryEntity> children;
 
 }
