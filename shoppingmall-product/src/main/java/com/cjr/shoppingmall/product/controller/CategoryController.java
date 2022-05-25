@@ -76,7 +76,10 @@ public class CategoryController {
     @RequestMapping("/delete")
     //@RequiresPermissions("product:category:delete")
     public R delete(@RequestBody Long[] catIds){
-		categoryService.removeByIds(Arrays.asList(catIds));
+
+		//categoryService.removeByIds(Arrays.asList(catIds));
+        //2. 自定义一个批量删除
+        categoryService.removeMenusByIds(Arrays.asList(catIds));
 
         return R.ok();
     }
